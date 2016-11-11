@@ -16,7 +16,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const cookieSession = require('cookie-session');
+// const cookieSession = require('cookie-session');
 const index = require('./routes/index');
 const corsOptions = {
   origin: 'http://localhost:3000',
@@ -44,7 +44,7 @@ app.use('/', index);
 
 // Catch all
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/views', 'index.html'));
+  res.sendFile(path.join(__dirname, '../client', 'index.html'));
 });
 
 // catch 404 and forward to error handler
