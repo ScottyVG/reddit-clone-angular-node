@@ -16,7 +16,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-// const cookieSession = require('cookie-session');
+const cookieSession = require('cookie-session');
 const index = require('./routes/index');
 const corsOptions = {
   origin: 'http://localhost:3000',
