@@ -8,20 +8,20 @@ module.exports = {
     client: 'pg',
     connection: 'postgres://localhost/reddit-clone-app',
     migrations: {
-      directory: './db/migrations',
+      directory: './server/db/migrations',
     },
     seeds: {
-      directory: './db/seeds',
+      directory: './server/db/seeds',
     },
   },
   production: {
     client: 'pg',
     connection: `${process.env.DATABASE_URL}?ssl=true`,
     migrations: {
-      directory: './db/migrations',
+      directory: './server/db/migrations',
     },
     seeds: {
-      directory: './db/seeds',
+      directory: './server/db/seeds',
     },
   },
 };

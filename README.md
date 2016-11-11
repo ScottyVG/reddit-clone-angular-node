@@ -1,4 +1,4 @@
 ### Heroku URL:
 ```
-notdeployed.notdeployed.heroku.com
+https://scottyvg-redditclone.herokuapp.com/
 ```
