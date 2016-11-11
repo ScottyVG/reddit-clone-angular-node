@@ -23,5 +23,18 @@
   },
   "engines": {
     "node": "7.0.0"
-  }
+  },
+  "description": "``` https://scottyvg-redditclone.herokuapp.com/ ```",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ScottyVG/reddit-clone-angular-node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ScottyVG/reddit-clone-angular-node/issues"
+  },
+  "homepage": "https://github.com/ScottyVG/reddit-clone-angular-node#readme"
 }
