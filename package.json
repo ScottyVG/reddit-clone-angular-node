@@ -22,7 +22,7 @@
     "serve-favicon": "~2.3.0"
   },
   "engines": {
-    "node": "7.0.0"
+    "node": "7.0.0" 
   },
   "description": "``` https://scottyvg-redditclone.herokuapp.com/ ```",
   "main": "./server/app.js",

@@ -24,7 +24,7 @@ const appConfig = ($stateProvider, $urlRouterProvider, $locationProvider) => {
     .state('detail', {
       url: '/detail/:id',
       // // TODO: maybe switch this
-      partials: {
+      views: {
         '': {
           controller: 'Detail',
           templateUrl: './partials/detail.html',
