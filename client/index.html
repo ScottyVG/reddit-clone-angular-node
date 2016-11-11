@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="redditCloneApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Reddit Clone - A web application made in Angular.js and Node.js">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Reddit Clone &middot; Made in Angular.js and Node.js</title>
+    <link rel="icon" href="images/reddit.png">
+    <!-- css -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- href -->
+    <base href="/">
+  </head>
+  <body>
+
+    <!-- Nav Bar -->
+    <header>
+      <div class="navbar-fixed">
+        <nav class="blue darken-4">
+          <div class="nav-wrapper container row">
+            <h4 class="col s7 m4 l3"><a href="/">Reddit Clone</a></h4>
+            <input ng-model="vm.search" type="text" name="search" placeholder="Search" class="col s2 white grey-text topnav" />
+            <select ng-model="vm.selected" name="sort" class="browser-default col s2 white grey-text">
+              <option value="votes" selected>Sort by Votes</option>
+              <option value="updated_at">Sort by Date</option>
+              <option value="title">Sort by Title</option>
+            </select>
+            <a ui-sref="new" class="col s1 right">Add Post</a>
+            <a href="/login" name="Login" class="right">Login</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main ui-view class="container row">
+    </main>
+
+    <!-- Footer -->
+    <footer class="page-footer blue-grey darken-4">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Scotty VG Bio</h5>
+            <p class="grey-text text-lighten-4">Scott is a fresh and creative developer dedicated to aesthetic excellence and intuitive functionality. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+          </div>
+        </div>
+      </div>
+      <div class="blue-grey darken-3">
+        <div class="container">
+          <div class="row">
+            <div class="col l3 s12">
+              <h5 class="white-text">About</h5>
+              <ul>
+                <li><a class="white-text" href="http://scottvangilder.com">About Scott</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="blue-grey darken-2">
+          <div class="container">
+            <div class="row">
+              <div class="col l3 s12">
+                <h5 class="white-text">Connect</h5>
+                <ul>
+                  <li><a class="white-text" href="http://scottvangilder.com">Scotty VG's Website</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Made by <a class="orange-text text-lighten-3" href="http://scottvangilder.com">Scott Van Gilder</a>
+      </div>
+    </div>
+    </footer>
+    <!-- materialize -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <!-- angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-messages.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/1.0.0/angular-moment.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-resource.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js"></script>
+    <!-- scripts -->
+    <script type="text/javascript" src="./js/controllers/Detail.js"></script>
+    <script type="text/javascript" src="./js/controllers/EditPost.js"></script>
+    <script type="text/javascript" src="./js/controllers/List.js"></script>
+    <script type="text/javascript" src="./js/controllers/Login.js"></script>
+    <script type="text/javascript" src="./js/controllers/Main.js"></script>
+    <script type="text/javascript" src="./js/controllers/NewPost.js"></script>
+    <script type="text/javascript" src="./js/config.js"></script>
+    <script type="text/javascript" src="./js/services/Data.js"></script>
+    <script type="text/javascript" src="./js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+/* === BUTTONS === */
+
+button, .btn {
+  padding: 0 1vh;
+  border-radius: 5px;
+}
+
+
+/* === ICONS === */
+
+.material-icons {
+  line-height: inherit;
+}
+
+i {
+  vertical-align: middle;
+}
+
+i:hover, ng-pluralize:hover {
+  cursor: pointer;
+}
+
+.neg {
+  color: red;
+}
+
+.pos {
+  color: #7cb342;
+}
+
+
+/* === IMAGES === */
+
+img {
+  max-height: 150px;
+  max-width: 100%;
+}
+
+
+/* === INPUTS === */
+
+input[type=text] {
+  margin: 0 15px;
+  border-radius: 5px;
+}
+
+select {
+  margin-top: 1.5vh;
+}
+
+.topnav, input[type=text].topnav {
+  margin-top: 1.5vh;
+  margin-right: 5vh;
+}
+
+input[type=text]:focus:not([readonly]) {
+  border-bottom: 1px solid #2196f3;
+  box-shadow: 0 1px 0 0 #2196f3;
+}
+
+input[type=text].invalid {
+  border-bottom: 1px solid red;
+  box-shadow: 0 1px 0 0 pink;
+}
+
+div.col.s2.red-text {
+  padding-top: 2vh;
+}

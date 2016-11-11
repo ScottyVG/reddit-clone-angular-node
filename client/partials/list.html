@@ -1,0 +1,21 @@
+<div ng-repeat="blog in vm.blogs | filter:vm.search | orderBy:vm.selected:true" class="animate-repeat col s12">
+  <br>
+  <div class="row">
+    <div class="col s1">
+      <i ng-click="upVote(blog.votes)" class="material-icons">keyboard_arrow_up</i><br>
+      <span class"votenumber" ng-class="{neg: blog.votes < 0, pos: blog.votes > 0}">
+        {{blog.votes}}
+      </span><br>
+      <i ng-click="downVote(blog.votes)" class="material-icons">keyboard_arrow_down</i>
+    </div>
+    <div class="col s3">
+      <img ng-src="{{blog.image}}" />
+    </div>
+    <div class="col s7">
+      <h5>{{blog.title}}</h5>
+      <h6 class="blue-text">"{{blog.name}}"  <time class="tooltipped grey-text" data-position="bottom" data-delay="0" data-tooltip="{{blog.updated_at | amDateFormat:'dddd, MMMM Do YYYY, h:mm a'}}">{{blog.updated_at | amCalendar}}</time></h6>
+      <p class="truncate">{{blog.description}}</p><a href="/detail/{{blog.id}}" class="right-align">more...</a>
+    </div>
+  </div>
+  <div class="divider"></div>
+</div>
