@@ -23,7 +23,6 @@ const appConfig = ($stateProvider, $urlRouterProvider, $locationProvider) => {
     })
     .state('detail', {
       url: '/detail/:id',
-      // // TODO: maybe switch this
       views: {
         '': {
           controller: 'Detail',
