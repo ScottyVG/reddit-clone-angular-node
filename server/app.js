@@ -34,8 +34,9 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(cookieSession({
   name: 'session',
-  secret: process.env.SECRET,
+  keys: [process.env.KEY1, process.env.KEY2],
   httpOnly: false,
+  maxAge: 24,
 }));
 app.use(express.static(path.join(__dirname, '../client')));
 
