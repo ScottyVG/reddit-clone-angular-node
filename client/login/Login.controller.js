@@ -23,6 +23,7 @@ const Login = function($scope, $state, Data) {
   };
 
   $scope.login = function() {
+    console.log('hit $scope.login');
     $scope.vm.loginSubmitted = true;
     if ($scope.loginForm.$valid && $scope.loginForm.$dirty) {
       Data.login($scope.vm.loginForm)
@@ -36,6 +37,7 @@ const Login = function($scope, $state, Data) {
   };
 
   $scope.join = function() {
+    console.log('hit $scope.join');
     $scope.vm.joinSubmitted = true;
     if ($scope.joinForm.$valid && $scope.joinForm.$dirty) {
       Data.join($scope.vm.joinForm)

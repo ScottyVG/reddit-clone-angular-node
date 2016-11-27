@@ -4,22 +4,22 @@
 'use strict';
 
 const Data = ($resource, $http, $cookies) => {
-  const Posts = $resource('/posts/:id', {
-    id: '@id'
+  const Posts = $resource('/posts/:pid', {
+    pid: '@pid'
   }, {
     update: {
       method: 'PUT'
     }
   });
-  const PostComments = $resource('/posts/:id/comments', {
-    id: '@id'
+  const PostComments = $resource('/posts/:pid/comments', {
+    pid: '@pid'
   }, {
     update: {
       method: 'PUT'
     }
   });
-  const Comments = $resource('/comments/:id', {
-    id: '@id'
+  const Comments = $resource('/comments/:cid', {
+    cid: '@cid'
   }, {
     update: {
       method: 'PUT'

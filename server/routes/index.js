@@ -10,7 +10,7 @@ const auth = require('./auth');
 const express = require('express');
 const router = express.Router();
 
-// Slave to the traffic light
+/* ROUTER */
 router.use('/posts/:pid/comments', comments);
 router.use('/posts', posts);
 router.use('/comments', comments);

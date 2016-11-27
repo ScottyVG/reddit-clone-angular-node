@@ -9,35 +9,35 @@ const appConfig = ($stateProvider, $urlRouterProvider, $locationProvider) => {
     .state('home', {
       url: '/',
       controller: 'List',
-      templateUrl: './partials/list.html',
+      templateUrl: './list/list.html',
     })
     .state('new', {
       url: '/new',
       controller: 'NewPost',
-      templateUrl: './partials/new.html',
+      templateUrl: './new_post/new.html',
     })
     .state('edit', {
       url: '/edit/:id',
       controller: 'EditPost',
-      templateUrl: './partials/edit.html',
+      templateUrl: './edit_post/edit.html',
     })
     .state('detail', {
       url: '/detail/:id',
       views: {
         '': {
           controller: 'Detail',
-          templateUrl: './partials/detail.html',
+          templateUrl: './detail/detail.html',
         },
         'comments@detail': {
           controller: 'Detail',
-          templateUrl: './partials/comments.html',
+          templateUrl: './detail/comments.html',
         },
       },
     })
     .state('login', {
       url: '/login',
       controller: 'Login',
-      templateUrl: './partials/login.html',
+      templateUrl: './login/login.html',
     });
 
   $locationProvider.html5Mode(true);

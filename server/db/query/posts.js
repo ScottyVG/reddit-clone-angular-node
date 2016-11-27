@@ -1,16 +1,16 @@
 /**
- * QUERY POSTS
+ * QUERY DB POSTS
  */
 'use strict';
 
 const knex = require('../knex');
 
-// Create
+/* Create */
 const createPost = (newPost) => {
   return knex('posts').insert(newPost);
 };
 
-// Read
+/* Read */
 const readPost = (id) => {
   return knex('posts')
     .innerJoin('users', 'users.id', 'posts.user_id')
@@ -20,19 +20,19 @@ const readPost = (id) => {
     .first().where('posts.id', id);
 };
 
-// Update
+/* Update */
 const updatePost = (id, changes) => {
   changes.updated_at = new Date();
 
   return knex('posts').where('id', id).update(changes);
 };
 
-// Delete
+/* Delete */
 const deletePost = (id) => {
   return knex('posts').where('id', id).del();
 };
 
-// List
+/* Lists */
 const listPosts = () => {
   return knex('posts')
     .innerJoin('users', 'users.id', 'posts.user_id')

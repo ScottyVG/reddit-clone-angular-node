@@ -1,33 +1,33 @@
 /**
- * QUERY POSTS
+ * QUERY DB POSTS
  */
 'use strict';
 
 const knex = require('../knex');
 
-// Create
+/* Create */
 const createUser = (newUsers) => {
   return knex('users').returning('*').insert(newUsers);
 };
 
-// Read
+/* Read */
 const readUser = (id) => {
   return knex('users').select('*').first().where('id', id);
 };
 
-// Update
+/* Update */
 const updateUser = (id, changes) => {
   changes.updated_at = new Date();
 
   return knex('users').where('id', id).update(changes);
 };
 
-// Delete
+/* Delete */
 const deleteUser = (id) => {
   return knex('users').where('id', id).del();
 };
 
-// Lists
+/* Lists */
 const listUsers = () => {
   return knex('users').select('*').orderBy('created_at', 'asc');
 };

@@ -1,33 +1,33 @@
 /**
- * QUERY COMMENTS
+ * QUERY DB COMMENTS
  */
 'use strict';
 
 const knex = require('../knex');
 
-// Create
+/* Create */
 const createComment = (newComment) => {
   return knex('comments').insert(newComment);
 };
 
-// Read
+/* Read */
 const readComment = (id) => {
   return knex('comments').select('*').first().where('id', id);
 };
 
-// Update
+/* Update */
 const updateComment = (id, changes) => {
   changes.updated_at = new Date();
 
   return knex('comments').where('id', id).update(changes);
 };
 
-// Delete
+/* Delete */
 const deleteComment = (id) => {
   return knex('comments').where('id', id).del();
 };
 
-// List
+/* Lists */
 const listComments = () => {
   return knex('comments')
     .innerJoin('users', 'users.id', 'comments.user_id')

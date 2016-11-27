@@ -8,12 +8,3 @@ angular.module('redditCloneApp', ['angularMoment', 'ngAnimate', 'ui.router', 'ng
   .controller('Detail', ['$scope', '$state', '$stateParams', 'Data', Detail])
   .controller('Login', ['$scope', '$state', 'Data', Login])
   .factory('Data', ['$resource', '$http', '$cookies', Data])
-
-// Initialize Materialize
-$(document).ready(() => {
-  $('.button-collapse').sideNav();
-  $('.tooltipped').tooltip({
-    delay: 0
-  });
-  $('select').material_select();
-});

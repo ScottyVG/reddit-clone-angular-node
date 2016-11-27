@@ -7,7 +7,7 @@ const db = require('../db/query/users');
 const express = require('express');
 const router = express.Router();
 
-// Create
+/* Create */
 router.post('/', (req, res, next) => {
   const newUser = req.body;
   db.createUser(newUser)
@@ -15,7 +15,7 @@ router.post('/', (req, res, next) => {
     .catch((err) => next(err));
 });
 
-// Read
+/* Read */
 router.get('/:id', (req, res, next) => {
   const id = req.params.id;
   db.readUser(id)
@@ -24,7 +24,7 @@ router.get('/:id', (req, res, next) => {
     .catch((err) => next(err));
 });
 
-// Update
+/* Update */
 router.put('/:id', (req, res, next) => {
   const id = req.params.id;
   const changes = req.body;
@@ -34,7 +34,7 @@ router.put('/:id', (req, res, next) => {
     .catch((err) => next(err));
 });
 
-// Delete
+/* Delete */
 router.delete('/:id', (req, res, next) => {
   const id = req.params.id;
   db.deleteUser(id)
@@ -42,7 +42,7 @@ router.delete('/:id', (req, res, next) => {
     .catch((err) => next(err));
 });
 
-// List
+/* Lists */
 router.get('/', (req, res, next) => {
   db.listUsers()
     .then((users) => res.json(users))

@@ -3,7 +3,7 @@
  */
 'use strict';
 
-// Setup server
+/* Setup server */
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
@@ -24,7 +24,7 @@ const corsOptions = {
   credentials: true,
 }
 
-// Start Server
+/* Start Server */
 app.use(favicon(path.join(__dirname, '../client/images', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -40,22 +40,22 @@ app.use(cookieSession({
 }));
 app.use(express.static(path.join(__dirname, '../client')));
 
-// Redirect all to index
+/* Redirect all to index */
 app.use('/', index);
 
-// Catch all
+/* Catch all */
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client', 'index.html'));
 });
 
-// catch 404 and forward to error handler
+/* catch 404 and forward to error handler */
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
-// error handler
+/* error handler */
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
@@ -66,5 +66,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-// Export application
 module.exports = app;

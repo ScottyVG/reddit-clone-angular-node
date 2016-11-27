@@ -9,7 +9,7 @@ const router = express.Router({
   mergeParams: true
 });
 
-// Create
+/* Create */
 router.post('/', (req, res, next) => {
   const newComment = req.body;
   db.createComment(newComment)
@@ -17,7 +17,7 @@ router.post('/', (req, res, next) => {
     .catch((err) => next(err));
 });
 
-// Read
+/* Read */
 router.get('/:cid', (req, res, next) => {
   const id = req.params.cid;
   db.readComment(id)
@@ -26,7 +26,7 @@ router.get('/:cid', (req, res, next) => {
     .catch((err) => next(err));
 });
 
-// Update
+/* Update */
 router.put('/:cid', (req, res, next) => {
   const id = req.params.cid;
   const changes = req.body;
@@ -36,7 +36,7 @@ router.put('/:cid', (req, res, next) => {
     .catch((err) => next(err));
 });
 
-// Delete
+/* Delete */
 router.delete('/:cid', (req, res, next) => {
   const id = req.params.cid;
   db.deleteComment(id)
@@ -44,7 +44,7 @@ router.delete('/:cid', (req, res, next) => {
     .catch((err) => next(err));
 });
 
-// List
+/* Lists */
 router.get('/', (req, res, next) => {
   const pid = req.params.pid;
   if (pid) {

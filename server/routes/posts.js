@@ -7,7 +7,7 @@ const db = require('../db/query/posts');
 const express = require('express');
 const router = express.Router();
 
-// Create
+/* Create */
 router.post('/', (req, res, next) => {
   const newPost = req.body;
   db.createPost(newPost)
@@ -15,7 +15,7 @@ router.post('/', (req, res, next) => {
     .catch((err) => next(err));
 });
 
-// Read
+/* Read */
 router.get('/:pid', (req, res, next) => {
   const id = req.params.pid;
   db.readPost(id)
@@ -24,7 +24,7 @@ router.get('/:pid', (req, res, next) => {
     .catch((err) => next(err));
 });
 
-// Update
+/* Update */
 router.put('/:pid', (req, res, next) => {
   const id = req.params.pid;
   const changes = req.body;
@@ -34,7 +34,7 @@ router.put('/:pid', (req, res, next) => {
     .catch((err) => next(err));
 });
 
-// Delete
+/* Delete */
 router.delete('/:pid', (req, res, next) => {
   const id = req.params.pid;
   db.deletePost(id)
@@ -42,7 +42,7 @@ router.delete('/:pid', (req, res, next) => {
     .catch((err) => next(err));
 });
 
-// List
+/* Lists */
 router.get('/', (req, res, next) => {
   db.listPosts()
     .then((posts) => res.json(posts))
