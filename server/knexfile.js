@@ -1,6 +1,3 @@
-/**
- * KNEX CONFIG FILE
- */
 'use strict';
 
 module.exports = {
