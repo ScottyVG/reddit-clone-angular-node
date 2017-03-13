@@ -1,8 +1,8 @@
 'use strict';
 
 const db = require(`../db/queries/posts`);
-const express = require(`express`); /* eslint-disable new-cap */
-const router = express.Router();    /* eslint-enable new-cap */
+const express = require(`express`);
+const router = express.Router();
 
 /* CREATE */
 router.post(`/`, (req, res, next) => {
