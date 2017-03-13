@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./server/bin/www",
-    "knex": "./server/db/knex",
+    "knex": "knex",
     "heroku-postbuild": "knex migrate:latest --knexfile ./server/knexfile.js"
   },
   "dependencies": {
@@ -23,18 +23,5 @@
   },
   "engines": {
     "node": "7.0.0"
-  },
-  "description": "``` https://scottyvg-redditclone.herokuapp.com/ ```",
-  "main": "./server/app.js",
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ScottyVG/reddit-clone-angular-node.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ScottyVG/reddit-clone-angular-node/issues"
-  },
-  "homepage": "https://github.com/ScottyVG/reddit-clone-angular-node#readme"
+  }
 }
