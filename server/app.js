@@ -1,11 +1,7 @@
-/**
- * MAIN SERVER APPLICATION FILE
- */
 'use strict';
 
-/* Setup server */
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config();
+if (process.env.NODE_ENV !== `production`) {
+  require(`dotenv`).config();
 }
 
 const express = require(`express`);
@@ -19,52 +15,40 @@ const api = require(`./routes/api`);
 
 const app = express();
 
-const corsOptions = {
-  origin: 'http://localhost:3000',
-  optionsSuccessStatus: 200,
-  credentials: true,
-}
-
-/* Start Server */
-app.use(favicon(path.join(__dirname, '../client/images', 'favicon.ico')));
-app.use(logger('dev'));
+app.use(favicon(path.join(__dirname, `../client/images/favicons`, `favicon.ico`)));
+app.use(logger(`dev`));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cookieSession({
-  name: 'session',
-  keys: [process.env.KEY1, process.env.KEY2],
+  name: `session`,
+  secret: process.env.SECRET,
   httpOnly: false,
-  maxAge: 24,
 }));
-app.use(express.static(path.join(__dirname, '../client')));
+app.use(express.static(path.join(__dirname, `../client`)));
 
-/* Redirect all to api */
-app.use('/api', api);
+app.use(`/api`, api);
 
-/* Catch all */
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/views', 'index.html'));
+app.get(`*`, (req, res) => {
+  res.sendFile(path.join(__dirname, `../client/views`, `index.html`));
 });
 
-/* catch 404 and forward to error handler */
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+// catch 404 and forward to error handler
+app.use((req, res, next) => {
+  const err = new Error(`Not Found`);
   err.status = 404;
   next(err);
 });
 
-/* error handler */
-app.use(function(err, req, res) {
+// error handler
+app.use((err, req, res) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  res.locals.error = req.app.get(`env`) === `development` ? err : {};
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render(`error`);
 });
 
 module.exports = app;
