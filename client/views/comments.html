@@ -1,0 +1,15 @@
+<div class="row">
+  <button ng-pluralize count="vm.comments.length" when="{'0': 'No Comments', '1': '1 Comment', 'other': '{} comments'}" ng-click="vm.showComments = !vm.showComments" type="button" name="button" class="btn col s3 blue-grey"></button>
+  <i ng-click="vm.blog.addComment = !vm.blog.addComment" class="material-icons left">add</i>
+  <form ng-show="vm.blog.addComment === true" ng-submit="newComment()" name="commentForm" class="col s8" novalidate>
+    <input ng-model="vm.form.body" ng-class="{invalid: commentForm.body.$invalid && vm.formSubmitted}" type="text" name="body" placeholder="comment" class="col s7" required>
+    <button type="submit" name="button" class="btn light-blue lighten-4"><i class="material-icons grey-text">send</i></button>
+  </form>
+  <div class="row">
+    <div class="col s2 offset-s4"><span ng-show="vm.blog.addComment === true && vm.formSubmitted && commentForm.body.$invalid" class="red-text">Required</span></div>
+  </div>
+</div>
+<div ng-show="vm.showComments === true" ng-repeat="comment in vm.comments" class="row">
+  <div class="col s2 right-align"><strong>{{comment.name}}: </strong></div><div class="col s6 left-align">{{comment.body}}</div>
+  <div class="divider col s12"></div>
+</div>

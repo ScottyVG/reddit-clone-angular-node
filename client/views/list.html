@@ -1,0 +1,26 @@
+<div class="col s2">
+  <br />
+  <a ui-sref="new" class="col s12 btn light-blue lighten-4 grey-text topnav">Add Post</a>
+  <input ng-model="vm.search" type="text" name="search" placeholder="Search" class="col s12 white grey-text topnav" />
+  <select ng-model="vm.selected" name="sort" class="browser-default col s12 white grey-text">
+    <option value="votes" selected>Sort by Votes</option>
+    <option value="updated_at">Sort by Date</option>
+    <option value="title">Sort by Title</option>
+  </select>
+</div>
+
+<div ng-repeat="blog in vm.blogs | filter:vm.search | orderBy:vm.selected:true" class="animate-repeat col s10 right">
+  <br>
+  <h5>{{blog.title}} |
+    <i ng-click="downVote(blog.votes)" class="material-icons">keyboard_arrow_down</i>
+    <span ng-class="{neg: blog.votes < 0, pos: blog.votes > 0}">
+      {{blog.votes}}
+    </span>
+    <i ng-click="upVote(blog.votes)" class="material-icons">keyboard_arrow_up</i>
+  </h5>
+  <h6 class="blue-text">"{{blog.name}}"  <time class="tooltipped grey-text" data-position="bottom" data-delay="0" data-tooltip="{{blog.updated_at | amDateFormat:'dddd, MMMM Do YYYY, h:mm a'}}">{{blog.updated_at | amCalendar}}</time></h6>
+  <img ng-src="{{blog.image}}" />
+  <p class="truncate">{{blog.description}}</p><a href="/detail/{{blog.id}}" class="right-align">more...</a>
+
+  <div class="divider"></div>
+</div>

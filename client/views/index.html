@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="redditApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>Reddit Clone</title>
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../images/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../images/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../images/favicons/manifest.json">
+    <link rel="mask-icon" href="../images/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <!-- css -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- materialize -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <!-- angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-messages.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/1.0.0/angular-moment.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-resource.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js"></script>
+    <!-- scripts -->
+    <script src="../js/Data.service.js"></script>
+    <script src="../js/Main.controller.js"></script>
+    <script src="../js/List.controller.js"></script>
+    <script src="../js/NewPost.controller.js"></script>
+    <script src="../js/EditPost.controller.js"></script>
+    <script src="../js/Detail.controller.js"></script>
+    <script src="../js/Login.controller.js"></script>
+    <script src="../js/appConfig.js"></script>
+    <script src="../js/app.js"></script>
+    <base href="/">
+  </head>
+  <body>
+    <header ng-controller="Main">
+      <div class="navbar-fixed">
+        <nav class="grey">
+          <div class="nav-wrapper container row">
+            <h4 class="col s6 m4 l3"><a href="/">Reddit Clone</a></h4>
+            <a ng-click="logout()" name="Logout" class="btn light-blue lighten-4 grey-text right">Logout</a>
+            <a href="/login" name="Login" class="btn light-blue lighten-4 grey-text right">Login</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main ui-view class="container row">
+
+    </main>
+    <footer class="page-footer footer-copyright grey white-text">
+      <div class="container">© Scott Van Gilder</div>
+    </footer>
+  </body>
+</html>
