@@ -15,14 +15,14 @@ const api = require(`./routes/api`);
 
 const app = express();
 
-app.use(favicon(path.join(__dirname, `../client/images/favicons`, `favicon.ico`)));
+app.use(favicon(path.join(__dirname, `../client/images`, `favicon.ico`)));
 app.use(logger(`dev`));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cookieSession({
-  name: `session`,
-  secret: process.env.SECRET,
+  name: 'session',
+  keys: [process.env.KEY1, process.env.KEY2],
   httpOnly: false,
 }));
 app.use(express.static(path.join(__dirname, `../client`)));
