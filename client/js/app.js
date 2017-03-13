@@ -1,3 +1,4 @@
+/* eslint-disable no-undef, max-len */
 'use strict';
 
 angular.module(`redditApp`,

@@ -1,52 +1,49 @@
-/**
- * POSTS ROUTE FILE
- */
 'use strict';
 
-const db = require('../db/query/posts');
-const express = require('express');
-const router = express.Router();
+const db = require(`../db/queries/posts`);
+const express = require(`express`); /* eslint-disable new-cap */
+const router = express.Router();    /* eslint-enable new-cap */
 
-/* Create */
-router.post('/', (req, res, next) => {
+/* CREATE */
+router.post(`/`, (req, res, next) => {
   const newPost = req.body;
   db.createPost(newPost)
-    .then(() => res.sendStatus(200))
-    .catch((err) => next(err));
+  .then(() => res.sendStatus(200))
+  .catch((err) => next(err));
 });
 
-/* Read */
-router.get('/:pid', (req, res, next) => {
+/* READ */
+router.get(`/:pid`, (req, res, next) => {
   const id = req.params.pid;
   db.readPost(id)
-    .first()
-    .then((post) => res.json(post))
-    .catch((err) => next(err));
+  .first()
+  .then((post) => res.json(post))
+  .catch((err) => next(err));
 });
 
-/* Update */
-router.put('/:pid', (req, res, next) => {
+/* UPDATE */
+router.put(`/:pid`, (req, res, next) => {
   const id = req.params.pid;
   const changes = req.body;
 
   db.updatePost(id, changes)
-    .then(() => res.sendStatus(200))
-    .catch((err) => next(err));
+  .then(() => res.sendStatus(200))
+  .catch((err) => next(err));
 });
 
-/* Delete */
-router.delete('/:pid', (req, res, next) => {
+/* DELETE */
+router.delete(`/:pid`, (req, res, next) => {
   const id = req.params.pid;
   db.deletePost(id)
-    .then(() => res.sendStatus(200))
-    .catch((err) => next(err));
+  .then(() => res.sendStatus(200))
+  .catch((err) => next(err));
 });
 
-/* Lists */
-router.get('/', (req, res, next) => {
+/* LIST */
+router.get(`/`, (req, res, next) => {
   db.listPosts()
-    .then((posts) => res.json(posts))
-    .catch((err) => next(err));
+  .then((posts) => res.json(posts))
+  .catch((err) => next(err));
 });
 
 module.exports = router;

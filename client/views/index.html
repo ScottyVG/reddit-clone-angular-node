@@ -42,11 +42,11 @@
   <body>
     <header ng-controller="Main">
       <div class="navbar-fixed">
-        <nav class="grey">
+        <nav class="blue-grey darken-4">
           <div class="nav-wrapper container row">
             <h4 class="col s6 m4 l3"><a href="/">Reddit Clone</a></h4>
-            <a ng-click="logout()" name="Logout" class="btn light-blue lighten-4 grey-text right">Logout</a>
-            <a href="/login" name="Login" class="btn light-blue lighten-4 grey-text right">Login</a>
+            <a ng-click="logout()" name="Logout" class="btn right">Logout</a>
+            <a href="/login" name="Login" class="btn right">Login</a>
           </div>
         </nav>
       </div>
@@ -54,8 +54,46 @@
     <main ui-view class="container row">
 
     </main>
-    <footer class="page-footer footer-copyright grey white-text">
-      <div class="container">© Scott Van Gilder</div>
+
+    <!-- Footer -->
+    <footer class="page-footer blue-grey darken-4">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Scotty VG Bio</h5>
+            <p class="grey-text text-lighten-4">Scott is a fresh and creative developer dedicated to aesthetic excellence and intuitive functionality. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+          </div>
+        </div>
+      </div>
+      <div class="blue-grey darken-3">
+        <div class="container">
+          <div class="row">
+            <div class="col l3 s12">
+              <h5 class="white-text">About</h5>
+              <ul>
+                <li><a class="white-text" href="http://scottvangilder.com">About Scott</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="blue-grey darken-2">
+          <div class="container">
+            <div class="row">
+              <div class="col l3 s12">
+                <h5 class="white-text">Connect</h5>
+                <ul>
+                  <li><a class="white-text" href="http://scottvangilder.com">Scotty VG's Website</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Made by <a class="orange-text text-lighten-3" href="http://scottvangilder.com">Scott Van Gilder</a>
+      </div>
+    </div>
     </footer>
   </body>
 </html>

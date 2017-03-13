@@ -8,16 +8,17 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
 
-const express = require('express');
+const express = require(`express`);
+const path = require(`path`);
+const favicon = require(`serve-favicon`);
+const logger = require(`morgan`);
+const cookieSession = require(`cookie-session`);
+const cookieParser = require(`cookie-parser`);
+const bodyParser = require(`body-parser`);
+const api = require(`./routes/api`);
+
 const app = express();
-const path = require('path');
-const favicon = require('serve-favicon');
-const logger = require('morgan');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const cookieSession = require('cookie-session');
-const index = require('./routes/index');
+
 const corsOptions = {
   origin: 'http://localhost:3000',
   optionsSuccessStatus: 200,
@@ -40,12 +41,12 @@ app.use(cookieSession({
 }));
 app.use(express.static(path.join(__dirname, '../client')));
 
-/* Redirect all to index */
-app.use('/', index);
+/* Redirect all to api */
+app.use('/api', api);
 
 /* Catch all */
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client', 'index.html'));
+  res.sendFile(path.join(__dirname, '../client/views', 'index.html'));
 });
 
 /* catch 404 and forward to error handler */
@@ -56,7 +57,7 @@ app.use(function(req, res, next) {
 });
 
 /* error handler */
-app.use(function(err, req, res, next) {
+app.use(function(err, req, res) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

@@ -1,60 +1,56 @@
-/**
- * COMMENTS ROUTE FILE
- */
 'use strict';
 
-const db = require('../db/query/comments');
-const express = require('express');
-const router = express.Router({
-  mergeParams: true
-});
+const db = require(`../db/queries/comments`);
+const express = require(`express`); /* eslint-disable new-cap */
+const router = express.Router({ mergeParams: true });    /* eslint-enable new-cap */
 
-/* Create */
-router.post('/', (req, res, next) => {
+/* CREATE */
+router.post(`/`, (req, res, next) => {
   const newComment = req.body;
   db.createComment(newComment)
-    .then(() => res.sendStatus(200))
-    .catch((err) => next(err));
+  .then(() => res.sendStatus(200))
+  .catch((err) => next(err));
 });
 
-/* Read */
-router.get('/:cid', (req, res, next) => {
+/* READ */
+router.get(`/:cid`, (req, res, next) => {
   const id = req.params.cid;
   db.readComment(id)
-    .first()
-    .then((comment) => res.json(comment))
-    .catch((err) => next(err));
+  .first()
+  .then((comment) => res.json(comment))
+  .catch((err) => next(err));
 });
 
-/* Update */
-router.put('/:cid', (req, res, next) => {
+/* UPDATE */
+router.put(`/:cid`, (req, res, next) => {
   const id = req.params.cid;
   const changes = req.body;
 
   db.updateComment(id, changes)
-    .then(() => res.sendStatus(200))
-    .catch((err) => next(err));
+  .then(() => res.sendStatus(200))
+  .catch((err) => next(err));
 });
 
-/* Delete */
-router.delete('/:cid', (req, res, next) => {
+/* DELETE */
+router.delete(`/:cid`, (req, res, next) => {
   const id = req.params.cid;
   db.deleteComment(id)
-    .then(() => res.sendStatus(200))
-    .catch((err) => next(err));
+  .then(() => res.sendStatus(200))
+  .catch((err) => next(err));
 });
 
-/* Lists */
-router.get('/', (req, res, next) => {
+/* LIST */
+router.get(`/`, (req, res, next) => {
   const pid = req.params.pid;
   if (pid) {
     db.commentsByPost(pid)
-      .then((comments) => res.json(comments))
-      .catch((err) => next(err));
-  } else {
+    .then((comments) => res.json(comments))
+    .catch((err) => next(err));
+  }
+  else {
     db.listComments()
-      .then((comments) => res.json(comments))
-      .catch((err) => next(err));
+    .then((comments) => res.json(comments))
+    .catch((err) => next(err));
   }
 });
 

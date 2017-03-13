@@ -1,52 +1,49 @@
-/**
- * USERS ROUTE FILE
- */
 'use strict';
 
-const db = require('../db/query/users');
-const express = require('express');
-const router = express.Router();
+const db = require(`../db/queries/users`);
+const express = require(`express`); /* eslint-disable new-cap */
+const router = express.Router();    /* eslint-enable new-cap */
 
-/* Create */
-router.post('/', (req, res, next) => {
+/* CREATE */
+router.post(`/`, (req, res, next) => {
   const newUser = req.body;
   db.createUser(newUser)
-    .then(() => res.sendStatus(200))
-    .catch((err) => next(err));
+  .then(() => res.sendStatus(200))
+  .catch((err) => next(err));
 });
 
-/* Read */
-router.get('/:id', (req, res, next) => {
+/* READ */
+router.get(`/:id`, (req, res, next) => {
   const id = req.params.id;
   db.readUser(id)
-    .first()
-    .then((user) => res.json(user))
-    .catch((err) => next(err));
+  .first()
+  .then((user) => res.json(user))
+  .catch((err) => next(err));
 });
 
-/* Update */
-router.put('/:id', (req, res, next) => {
+/* UPDATE */
+router.put(`/:id`, (req, res, next) => {
   const id = req.params.id;
   const changes = req.body;
 
   db.updateUser(id, changes)
-    .then(() => res.sendStatus(200))
-    .catch((err) => next(err));
+  .then(() => res.sendStatus(200))
+  .catch((err) => next(err));
 });
 
-/* Delete */
-router.delete('/:id', (req, res, next) => {
+/* DELETE */
+router.delete(`/:id`, (req, res, next) => {
   const id = req.params.id;
   db.deleteUser(id)
-    .then(() => res.sendStatus(200))
-    .catch((err) => next(err));
+  .then(() => res.sendStatus(200))
+  .catch((err) => next(err));
 });
 
-/* Lists */
-router.get('/', (req, res, next) => {
+/* LIST */
+router.get(`/`, (req, res, next) => {
   db.listUsers()
-    .then((users) => res.json(users))
-    .catch((err) => next(err));
+  .then((users) => res.json(users))
+  .catch((err) => next(err));
 });
 
 module.exports = router;

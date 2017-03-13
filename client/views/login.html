@@ -9,7 +9,7 @@
       <input ng-model="vm.loginForm.password" ng-class="{invalid: loginForm.password.$invalid && vm.loginSubmitted}" type="password" name="password" placeholder="password" class="col s12" required>
       <div ng-show="loginForm.password.$invalid && vm.loginSubmitted" class="col s12 red-text">Required</div>
     </div>
-    <button type="submit" name="loginSubmit" class="btn blue-grey">Sign In</button>
+    <button type="submit" name="loginSubmit" class="btn">Sign In</button>
   </form>
   <form ng-submit="join()" name="joinForm" class="col s5 right" novalidate>
     <h4>Sign Up</h4>
@@ -25,7 +25,7 @@
       <input ng-model="vm.joinForm.password" ng-class="{invalid: joinForm.password.$invalid && vm.joinSubmitted}" type="password" name="password" placeholder="password" class="col s12" required>
       <div ng-show="joinForm.password.$invalid && vm.joinSubmitted" class="col s12 red-text">Required</div>
     </div>
-    <button type="submit" name="joinSubmit" class="btn blue-grey">Join</button>
+    <button type="submit" name="joinSubmit" class="btn">Join</button>
   </form>
 </div>
 <br />
