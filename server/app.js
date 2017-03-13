@@ -11,7 +11,7 @@ const logger = require(`morgan`);
 const cookieSession = require(`cookie-session`);
 const cookieParser = require(`cookie-parser`);
 const bodyParser = require(`body-parser`);
-const api = require(`./routes/api`);
+const api = require(`./routes/api.js`);
 
 const app = express();
 
@@ -23,7 +23,8 @@ app.use(cookieParser());
 app.use(cookieSession({
   name: 'session',
   // keys: [process.env.KEY1, process.env.KEY2],
-  secret: [process.env.KEY1, process.env.KEY2],
+  // secret: [process.env.KEY1, process.env.KEY2],
+  secret: process.env.SECRET,
   httpOnly: false,
 }));
 app.use(express.static(path.join(__dirname, `../client`)));

@@ -1,6 +1,6 @@
 'use strict';
 
-const db = require(`../db/queries/posts`);
+const db = require(`../db/queries/posts.js`);
 const express = require(`express`);
 const router = express.Router();
 

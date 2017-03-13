@@ -1,6 +1,6 @@
 'use strict';
 
-const db = require(`../db/queries/users`);
+const db = require(`../db/queries/users.js`);
 const bcrypt = require(`bcrypt`);
 const express = require(`express`); /* eslint-disable new-cap */
 const router = express.Router();    /* eslint-enable new-cap */

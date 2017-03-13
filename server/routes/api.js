@@ -3,10 +3,10 @@
  */
 'use strict';
 
-const posts = require('./posts');
-const comments = require('./comments');
-const users = require('./users');
-const auth = require('./auth');
+const posts = require('./posts.js');
+const comments = require('./comments.js');
+const users = require('./users.js');
+const auth = require('./auth.js');
 const express = require('express');
 const router = express.Router();
 

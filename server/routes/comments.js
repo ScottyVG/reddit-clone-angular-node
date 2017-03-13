@@ -1,8 +1,8 @@
 'use strict';
 
-const db = require(`../db/queries/comments`);
-const express = require(`express`); /* eslint-disable new-cap */
-const router = express.Router({ mergeParams: true });    /* eslint-enable new-cap */
+const db = require(`../db/queries/comments.js`);
+const express = require(`express`);
+const router = express.Router({ mergeParams: true });
 
 /* CREATE */
 router.post(`/`, (req, res, next) => {
